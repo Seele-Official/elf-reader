@@ -133,8 +133,8 @@ public:
     elf64_section_t(elf64_sechdr_t header, std::vector<uint8_t>&& data) : header(header), data(std::move(data)){}
 
     template<typename T>
-    inline std::span<T> view_table_as() const {
-        return {(T*)(data.data()), data.size() / sizeof(T)};
+    inline std::span<const T> view_table_as() const {
+        return {reinterpret_cast<const T*>(data.data()), data.size() / sizeof(T)};
     }
 
     inline std::string_view view_string(size_t offset) const {

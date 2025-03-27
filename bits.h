@@ -39,8 +39,8 @@ constexpr uint32_t reverse(uint32_t value) {
            ((value & 0xff000000) >> 24);
 }
 
-constexpr uint16_t reverse(uint16_t hostshort) {
-    return (hostshort >> 8) | (hostshort << 8);
+constexpr uint16_t reverse(uint16_t value) {
+    return (value >> 8) | (value << 8);
 }
 
 #if MY_BYTE_ORDER == MY_BIG_ENDIAN
